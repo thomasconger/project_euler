@@ -4,7 +4,19 @@
 
 // By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 
-const evenFibonacci = function (max) {
-  let fibs = [1,2];
-  let sum = 0;
+function evenFibonacci(max) {
+  let fibs = [1,2,3];
+  let sum = 2;
+  let step = 2
+  while (fibs[step] < max) {
+    let new_val = fibs[step] + fibs[step - 1]
+    if (new_val % 2 == 0) {
+      sum += new_val
+    }
+    fibs.push(new_val)
+    step++
+  }
+  return sum
 }
+
+console.log(evenFibonacci(4000000))
